@@ -21,5 +21,9 @@ jobs:
       - name: Download test data
         if: steps.cache-vcf.outputs.cache-hit != 'true'
         run: wget -O - http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz | zcat - | head -30000 | bgzip -c > 1kg.chr1.subset.vcf.gz
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: cargo install hyperfine
       - uses: crystal-lang/install-crystal@v1
       - run: cd crystal-htslibcr && make
