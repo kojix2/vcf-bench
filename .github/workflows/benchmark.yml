@@ -11,9 +11,13 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
+      - run: apt update -y && apt install -y tabix bcftools
+      - name: Cache VCF
+        id: cache-vcf
+        uses: actions/cache@v3
+        with:
+          path: 1kg.chr1.subset.vcf.gz
+          key: ${{ runner.os }}-primes
       - name: Download test data
-        run: |
-          wget -O - http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz
-          | zcat -
-          | head -30000
-          | bgzip -c > 1kg.chr1.subset.vcf.gz
+        if: steps.cache-vcf.outputs.cache-hit != 'true'
+        run: wget -O - http://ftp.1000genomes.ebi.ac.uk/vol1/ftp/data_collections/1000G_2504_high_coverage/working/20201028_3202_raw_GT_with_annot/20201028_CCDG_14151_B01_GRM_WGS_2020-08-05_chr1.recalibrated_variants.vcf.gz | zcat - | head -30000 | bgzip -c > 1kg.chr1.subset.vcf.gz
