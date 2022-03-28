@@ -27,3 +27,4 @@ jobs:
       - run: cargo install hyperfine
       - uses: crystal-lang/install-crystal@v1
       - run: cd crystal-htslibcr && make
+      - run: ./run.sh
