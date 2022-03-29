@@ -36,7 +36,6 @@ jobs:
       - run: cd c-htslib && make
       - run: cd crystal-htslibcr && make
       - run: cd rust-htslib && cargo build --release
-      - run: cd rust-noodles && cargo build --release
       - run: ./run.sh
       - name: Generate HTML
         run: cd result && pandoc vcf-bench.md -o index.html
