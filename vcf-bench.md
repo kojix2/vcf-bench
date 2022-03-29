@@ -1,8 +1,10 @@
 | Command | Mean [s] | Min [s] | Max [s] | Relative |
 |:---|---:|---:|---:|---:|
-| `c-htslib/read 1kg.chr1.subset.vcf.gz` | 32.881 ± 0.137 | 32.737 | 33.090 | 8.02 ± 0.09 |
-| `crystal-htslibcr/read 1kg.chr1.subset.vcf.gz` | 32.730 ± 0.348 | 32.349 | 33.547 | 7.98 ± 0.12 |
-| `rust-htslib/target/release/rust-rhtslib 1kg.chr1.subset.vcf.gz` | 24.948 ± 0.142 | 24.746 | 25.127 | 6.09 ± 0.07 |
-| `c-htslib/read 1kg.chr1.subset.bcf` | 4.099 ± 0.041 | 4.032 | 4.169 | 1.00 |
-| `crystal-htslibcr/read 1kg.chr1.subset.bcf` | 4.100 ± 0.024 | 4.061 | 4.144 | 1.00 ± 0.01 |
-| `rust-htslib/target/release/rust-rhtslib 1kg.chr1.subset.bcf` | 4.572 ± 0.043 | 4.506 | 4.639 | 1.12 ± 0.02 |
+| `c-htslib/read 1kg.chr1.subset.vcf.gz` | 28.985 ± 0.014 | 28.968 | 29.011 | 7.99 ± 0.02 |
+| `crystal-htslibcr/read 1kg.chr1.subset.vcf.gz` | 28.756 ± 0.007 | 28.745 | 28.766 | 7.92 ± 0.02 |
+| `rust-htslib/target/release/rust-rhtslib 1kg.chr1.subset.vcf.gz` | 22.063 ± 0.022 | 22.047 | 22.120 | 6.08 ± 0.01 |
+| `python3 python-cyvcf2/read.py 1kg.chr1.subset.vcf.gz` | 31.032 ± 0.018 | 31.009 | 31.059 | 8.55 ± 0.02 |
+| `c-htslib/read 1kg.chr1.subset.bcf` | 3.629 ± 0.008 | 3.624 | 3.651 | 1.00 |
+| `crystal-htslibcr/read 1kg.chr1.subset.bcf` | 3.638 ± 0.002 | 3.636 | 3.642 | 1.00 ± 0.00 |
+| `rust-htslib/target/release/rust-rhtslib 1kg.chr1.subset.bcf` | 4.025 ± 0.001 | 4.023 | 4.027 | 1.11 ± 0.00 |
+| `python python-cyvcf2/read.py 1kg.chr1.subset.bcf` | 4.124 ± 0.002 | 4.119 | 4.127 | 1.14 ± 0.00 |
