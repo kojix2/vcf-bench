@@ -34,6 +34,7 @@ jobs:
           sudo apt install -y ./hyperfine_1.13.0_amd64.deb
       - uses: crystal-lang/install-crystal@v1
       - uses: jiro4989/setup-nim-action@v1
+      - run: nimble install hts
       - run: pip3 install cyvcf2
       - run: pip3 install pysam
       - run: cd c-htslib && make
