@@ -33,6 +33,7 @@ jobs:
           wget https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb
           sudo apt install -y ./hyperfine_1.13.0_amd64.deb
       - uses: crystal-lang/install-crystal@v1
+      - uses: actions/setup-go@v3
       - uses: jiro4989/setup-nim-action@v1
       - run: nimble install -y hts
       - run: pip3 install cyvcf2
