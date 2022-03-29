@@ -33,8 +33,8 @@ jobs:
           wget https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb
           sudo apt install -y ./hyperfine_1.13.0_amd64.deb
       - uses: crystal-lang/install-crystal@v1
-      - run: pip3 install -y cyvcf2
-      - run: pip3 install -y pysam
+      - run: pip3 install cyvcf2
+      - run: pip3 install pysam
       - run: cd c-htslib && make
       - run: cd crystal-htslibcr && make
       - run: cd rust-htslib && cargo build --release
