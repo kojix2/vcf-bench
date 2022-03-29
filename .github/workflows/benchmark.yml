@@ -36,3 +36,8 @@ jobs:
       - run: cd c-htslib && make
       - run: cd crystal-htslibcr && make
       - run: ./run.sh
+      - name: Output results to Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./result
