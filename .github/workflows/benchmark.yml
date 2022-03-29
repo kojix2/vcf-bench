@@ -40,6 +40,7 @@ jobs:
       - run: pip3 install pysam
       - run: cd c-htslib && make
       - run: cd crystal-htslibcr && make
+      - run: cd go-vcfgo && make
       - run: cd nim-hts-nim && nim compile -d:release read.nim 
       - run: cd rust-htslib && cargo build --release
       - run: ./run.sh
