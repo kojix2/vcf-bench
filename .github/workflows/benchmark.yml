@@ -28,6 +28,7 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - run: sudo apt install -yq libdeflate-dev libcurl4-openssl-dev
       - run: |
           : # cargo install hyperfine
           wget https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb
