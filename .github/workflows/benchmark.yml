@@ -11,7 +11,16 @@ jobs:
     
     steps:
       - uses: actions/checkout@v3
-      - run: sudo apt update -y && sudo apt install -y pandoc tabix bcftools libhts-dev
+      - name: Install htslib
+        run: |
+          sudo apt update -y
+          sudo apt install -y pandoc tabix bcftools libdeflate-dev libcurl4-openssl-dev
+          git clone --recurse-submodules https://github.com/samtools/htslib
+          cd htslib
+          autoreconf -i
+          ./configure
+          make
+          sudo make install
       - name: Cache VCF
         id: cache-vcf
         uses: actions/cache@v3
@@ -28,7 +37,6 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: sudo apt install -yq libdeflate-dev libcurl4-openssl-dev
       - run: |
           : # cargo install hyperfine
           wget https://github.com/sharkdp/hyperfine/releases/download/v1.13.0/hyperfine_1.13.0_amd64.deb
